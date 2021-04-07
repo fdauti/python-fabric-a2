@@ -17,7 +17,7 @@ env.hosts = ['myvmlab.senecacollege.ca']
 
 def addUser(name):
     '''add a user with given user name to remote system'''
-    cmd = "grep ^"+name+" /etc/passwd"
+    cmd = "grep ^"+name+":"+" /etc/passwd"
     result = run(cmd, warn_only=True, quiet=True)
     if result.failed:
         sudo("useradd -m "+name)
@@ -27,7 +27,7 @@ def addUser(name):
 
 def findUser(name):
     '''find user with a given user name'''
-    cmd = "grep ^"+name+" /etc/passwd"
+    cmd = "grep ^"+name+":"+" /etc/passwd"
     result = run(cmd, warn_only=True, quiet=True)
     if result.succeeded:
         print("Found user '"+name+"' on the system!")
@@ -35,13 +35,15 @@ def findUser(name):
         print("User '"+name+"' NOT found!")
 
 def listUser():
-    '''return a list of shell user on a remote system'''
-    cmd = "grep /bin/bash$ /etc/passwd | cut -d: -f1"
+    '''return a list of "bash or sh" shell users on a remote system'''
+    cmd = "egrep '/bin/bash$|/bin/sh$' /etc/passwd | cut -d: -f1"
     result = run(cmd)
     print(result.split())
 
 def listSysUser():
     '''return a list of system (non-shell) user'''
-    cmd = "grep -v /bin/bash$ /etc/passwd | cut -d: -f1"
+    cmd = "egrep -v '/bin/bash$|/bin/sh$' /etc/passwd | cut -d: -f1"
     result = run(cmd)
     print(result.split())
+
+#Centos7 cli, there are 2 shells by default on /etc/shells (bash and sh)
