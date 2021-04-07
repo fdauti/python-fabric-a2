@@ -1,42 +1,43 @@
 [myvmlab.senecacollege.ca] Executing task 'addUser'
-[myvmlab.senecacollege.ca] sudo: useradd -m testme
-User 'testme' added!
+[myvmlab.senecacollege.ca] sudo: useradd -m test2
+User 'test2' added!
 
 Done.
 Disconnecting from myvmlab.senecacollege.ca:7904... done.
 [myvmlab.senecacollege.ca] Executing task 'addUser'
-User 'testme' already exists!
+User 'test2' already exists!
 
 Done.
 Disconnecting from myvmlab.senecacollege.ca:7904... done.
 [myvmlab.senecacollege.ca] Executing task 'findUser'
-Found user 'testme' on the system!
+Found user 'test2' on the system!
 
 Done.
 Disconnecting from myvmlab.senecacollege.ca:7904... done.
 [myvmlab.senecacollege.ca] Executing task 'findUser'
-User 'testx' NOT found!
+User 'test' NOT found!
 
 Done.
 Disconnecting from myvmlab.senecacollege.ca:7904... done.
 [myvmlab.senecacollege.ca] Executing task 'listUser'
-[myvmlab.senecacollege.ca] run: grep /bin/bash$ /etc/passwd | cut -d: -f1
+[myvmlab.senecacollege.ca] run: egrep '/bin/bash$|/bin/sh$' /etc/passwd | cut -d: -f1
 [myvmlab.senecacollege.ca] out: root
 [myvmlab.senecacollege.ca] out: itsadmin
 [myvmlab.senecacollege.ca] out: student
 [myvmlab.senecacollege.ca] out: instructor
 [myvmlab.senecacollege.ca] out: ops435p
 [myvmlab.senecacollege.ca] out: fdauti
-[myvmlab.senecacollege.ca] out: test
 [myvmlab.senecacollege.ca] out: testme
+[myvmlab.senecacollege.ca] out: sh_user
+[myvmlab.senecacollege.ca] out: test2
 [myvmlab.senecacollege.ca] out: 
 
-['root', 'itsadmin', 'student', 'instructor', 'ops435p', 'fdauti', 'test', 'testme']
+['root', 'itsadmin', 'student', 'instructor', 'ops435p', 'fdauti', 'testme', 'sh_user', 'test2']
 
 Done.
 Disconnecting from myvmlab.senecacollege.ca:7904... done.
 [myvmlab.senecacollege.ca] Executing task 'listSysUser'
-[myvmlab.senecacollege.ca] run: grep -v /bin/bash$ /etc/passwd | cut -d: -f1
+[myvmlab.senecacollege.ca] run: egrep -v '/bin/bash$|/bin/sh$' /etc/passwd | cut -d: -f1
 [myvmlab.senecacollege.ca] out: bin
 [myvmlab.senecacollege.ca] out: daemon
 [myvmlab.senecacollege.ca] out: adm
