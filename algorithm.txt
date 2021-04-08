@@ -1,0 +1,43 @@
+Algorithm for Assignment 2 - Fatjon Dauti
+
+The purpose of this program is to automate simple remote user management tasks using Fabric
+The program makes use of the following Fabric modules: run() and sudo()
+The script runs 4 Fabric tasks: addUser(username), findUser(username), listUser(), listSysUser()
+
+The script will define 3 env. variables to establish a connection with the remote machine:
+env.user, env.port, env.hosts
+
+Python functions inside the scripts
+
+addUser(username)
+#Input stage
+Take as input from the user a "username" string.
+#Processing stage
+Check the /etc/passwd file to see if the user exists on the system
+If the string contains chars not allowed processing will fail 
+#Output stage
+If the result of checking is null, add the user to the system and print a confirmation on stdout
+If the result is not null, the user exists on the system and a confirmation is displayed on console
+
+findUser(username)
+#Input stage
+Take as input from the user a "username" string.
+#Processing stage
+Check the /etc/passwd file to see if the user exists on the system
+#Output stage
+If the result of checking is null, the user doesn't exists. 
+If command succeeded - user exists, a message is displayed on console in each case
+
+listUser()
+#Input stage: No user input needed
+#Processing stage
+Check the /etc/passwd file for "bash" and "sh" shells strings and extract the first column only for each row
+#Output stage
+Print the result on console in a list format, using the split() function
+
+listSysUser()
+#Input stage: No user input needed
+#Processing stage
+Check the /etc/passwd file for rows without "bash" and "sh" strings and extract the first column only for each row
+#Output stage
+Print the result on console in a list format, using the split() function
