@@ -7,7 +7,7 @@ The script runs 4 Fabric tasks: addUser(username), findUser(username), listUser(
 The script will define 3 env. variables to establish a connection with the remote machine:
 env.user, env.port, env.hosts
 
-Python functions inside the scripts
+Python functions inside the program
 
 addUser(username)
 #Input stage
